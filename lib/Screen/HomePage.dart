@@ -1,6 +1,9 @@
 import '../Constant/Constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../UserAuth/Login.dart';
+import 'package:flare_flutter/flare_actor.dart';
+import 'package:page_transition/page_transition.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -8,6 +11,16 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+//    Navigator.pushReplacement(
+//        context,
+//        PageTransition(
+//            type: PageTransitionType.rightToLeftWithFade,
+//            child: Login()));
+  }
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -45,9 +58,8 @@ class HomeScreenState extends State<HomeScreen> {
                       padding: EdgeInsets.only(
                           top: 7.0, bottom: 7.0, right: 40.0, left: 7.0),
                       onPressed: () {
-                        Navigator
-                            .of(context)
-                            .pushReplacementNamed(IMAGE_SPLASH);
+                        Navigator.of(context).popAndPushNamed(LOGIN_SCREEN);
+
                       },
                       child: new Row(
                         mainAxisSize: MainAxisSize.min,

@@ -3,6 +3,7 @@ import 'dart:async';
 import '../Constant/Constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../UserAuth/Login.dart';
 
 class ImageSplashScreen extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class SplashScreenState extends State<ImageSplashScreen> {
   }
 
   void navigationPage() {
-    Navigator.of(context).popAndPushNamed(HOME_SCREEN);
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Login()));
   }
 
   @override
