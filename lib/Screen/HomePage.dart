@@ -1,6 +1,13 @@
 import '../Constant/Constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'dart:ui';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import '../Constant/Card.dart';
+import '../Constant/color_shades.dart' as color_shades;
 import '../UserAuth/Login.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:page_transition/page_transition.dart';
@@ -21,66 +28,146 @@ class HomeScreenState extends State<HomeScreen> {
 //            type: PageTransitionType.rightToLeftWithFade,
 //            child: Login()));
   }
+
+  List<String> events = [
+    "Social",
+    "Events",
+    "Mentor Support",
+    "Employment",
+  ];
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-
-    return new Scaffold(
-        /* appBar: AppBar(
-          title: new Text("Home Page"),
-        ),*/
-        backgroundColor: Colors.black,
-        body: new Stack(
-          fit: StackFit.expand,
-          children: <Widget>[
-            new Column(
-              children: <Widget>[
-                SizedBox(height: 70.0),
-                SizedBox(
-                  height: 0.0,
-                  child: new Text(
-                    "Home Page",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 28.0,
-                        fontWeight: FontWeight.bold),
-                  ),
+    return Stack(fit: StackFit.expand, children: <Widget>[
+      Stack(fit: StackFit.expand, children: [
+        Container(
+          color: Colors.white,
+        ),
+      ]),
+      Stack(children: [
+        ClipPath(
+          child: Container(
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height / 2,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/images/admin.jpeg"),
+                    fit: BoxFit.cover),
+              )),
+          clipper: Header(),
+        ),
+      ]),
+      Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          backgroundColor: Colors.black.withOpacity(0.5),
+          actions: <Widget>[
+            IconButton(
+              icon: Container(
+                child: SvgPicture.asset(
+                  "assets/icons/Logout.svg",
+                  color: Colors.white70,
                 ),
-              ],
-            ),
-            new Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                new RaisedButton(
-                      elevation: 0.0,
-                      shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(30.0)),
-                      padding: EdgeInsets.only(
-                          top: 7.0, bottom: 7.0, right: 40.0, left: 7.0),
-                      onPressed: () {
-                        Navigator.of(context).popAndPushNamed(LOGIN_SCREEN);
-
-                      },
-                      child: new Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          new Image.asset('assets/images/image.png',
-                              height: 40.0, width: 40.0),
-                          Padding(
-                              padding: EdgeInsets.only(left: 10.0),
-                              child: new Text(
-                                "Image Splash   ",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15.0),
-                              ))
-                        ],
-                      ),
-                      textColor: Color(0xFF292929),
-                      color: Color(0xFFDADADA)),
-                ],
+                height: 20,
+              ),
+              onPressed: () {},
             )
           ],
-        ));
+          title: Text('Home'),
+          elevation: 0.0,
+        ),
+        bottomNavigationBar: CurvedNavigationBar(
+          backgroundColor: Colors.transparent,
+          color: Colors.black,
+          buttonBackgroundColor: color_shades.color2,
+          height: 50,
+          items: <Widget>[
+            Icon(
+              Icons.account_balance,
+              size: 30,
+              color: color_shades.color3,
+            ),
+            //     SvgPicture.asset("assets/icons/ac.svg",color:color_shades.color4,height: 30,),
+            Icon(
+              Icons.assistant_photo,
+              size: 30,
+              color: color_shades.color3,
+            ),
+            Icon(
+              Icons.home,
+              size: 30,
+              color: color_shades.color3,
+            ),
+            Icon(
+              Icons.mail,
+              size: 30,
+              color: color_shades.color3,
+            ),
+            Icon(
+              Icons.person,
+              size: 32,
+              color: color_shades.color3,
+            ),
+          ],
+          animationCurve: Curves.bounceInOut,
+          animationDuration: Duration(milliseconds: 200),
+          index: 2,
+          onTap: (index) {},
+        ),
+        body: Stack(children: <Widget>[
+          Container(
+            margin: EdgeInsets.only(top: 120.0),
+            child: OrientationBuilder(builder: (context, orientation) {
+              return GridView(
+//crossAxisCount: orientation==Orientation.portrait?2:3,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2),
+//crossAxisCount: 2,
+//crossAxisSpacing: 2.0,
+                children: events.map((title) {
+                  return Container(
+                    decoration: BoxDecoration(),
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: Card(
+                        margin: EdgeInsets.all(25.0),
+                        color: Colors.white.withOpacity(0.8),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        elevation: 0.3,
+                        child: Card_title(title),
+                      ),
+                    ),
+                  );
+                }).toList(),
+              );
+            }),
+          ),
+        ]),
+      )
+    ]);
   }
 }
+
+  class Header extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+  // TODO: implement getClip
+  var path = new Path();
+  path.lineTo(0.0, size.height - 20.0);
+  path.quadraticBezierTo(
+  size.width / 4, size.height, size.width / 2.25, size.height - 30);
+  path.quadraticBezierTo(size.width - (size.width / 3.25), size.height - 65,
+  size.width, size.height - 40);
+  path.lineTo(size.width, size.height - 40);
+  path.lineTo(size.width, 0.0);
+  path.close();
+  return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+  }
