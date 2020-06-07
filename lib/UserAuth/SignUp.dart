@@ -99,7 +99,7 @@ class SignUpState extends State<SignUp> {
                   padding: const EdgeInsets.only(
                     right: 22,
                     left: 22,
-                    top: 190,
+                    top: 180,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,

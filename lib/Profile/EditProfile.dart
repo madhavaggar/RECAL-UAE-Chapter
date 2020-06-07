@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'ProfileScreen.dart';
 import '../Constant/ShowDetailText.dart';
 import '../Constant/ColorGlobal.dart';
@@ -12,12 +13,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 
 
-class EditProfile extends StatefulWidget {
+class EditProfileScreen extends StatefulWidget {
   @override
-  _EditProfileState createState() => _EditProfileState();
+  _EditProfileScreenState createState() => _EditProfileScreenState();
 }
 
-class _EditProfileState extends State<EditProfile> {
+class _EditProfileScreenState extends State<EditProfileScreen> {
   File _image;
   final picker = ImagePicker();
   List <int> color = [0,0,0,0,0,0,0];
@@ -36,22 +37,43 @@ class _EditProfileState extends State<EditProfile> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String picture = prefs.getString("profile_pic") ?? null;
   }
-  Future <Null> getImageCamera() async {
-    final pickedFile = await picker.getImage(source: ImageSource.camera);
+//  Future <Null> getImageCamera() async {
+//    PickedFile pickedFile = await picker.getImage(source: ImageSource.camera);
+//    LostData response = await picker.getLostData();
+//    print("lost: ${response.file.path}");
+//    print(pickedFile.path);
+//    setState(() {
+//      _image = File(pickedFile.path);
+//    });
+//    Navigator.of(context).maybePop();
+//
+//  }
+  Future getImageCamera() async {
+    Map<Permission, PermissionStatus> permissions = await [Permission.camera].request();
+    if(permissions[Permission.camera] != PermissionStatus.granted){
+      openAppSettings();
+      return;
+    }
+    PickedFile pickedFile = await picker.getImage(source: ImageSource.camera);
 
+    print(pickedFile.path);
     setState(() {
       _image = File(pickedFile.path);
     });
-    Navigator.of(context).pop();
-
+    Navigator.of(context).maybePop();
   }
   Future <Null> getImageGallery() async {
-    final pickedFile = await picker.getImage(source: ImageSource.gallery);
-
+    Map<Permission, PermissionStatus> permissions = await [Permission.storage].request();
+    if(permissions[Permission.storage] != PermissionStatus.granted){
+      openAppSettings();
+      return;
+    }
+    PickedFile pickedFile = await picker.getImage(source: ImageSource.gallery);
+    print(pickedFile.path);
     setState(() {
       _image = File(pickedFile.path);
     });
-    Navigator.of(context).pop();
+    Navigator.of(context).maybePop();
   }
 
 
@@ -67,7 +89,7 @@ class _EditProfileState extends State<EditProfile> {
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: FlatButton(
-                    onPressed: () async => await getImageCamera(),
+                    onPressed: ()  =>  getImageCamera(),
                     child: Container(
                       decoration: BoxDecoration(
                         color: ColorGlobal.textColor,
@@ -87,7 +109,7 @@ class _EditProfileState extends State<EditProfile> {
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: FlatButton(
-                    onPressed: () async => await getImageGallery(),
+                    onPressed: () => getImageGallery(),
                     child: Container(
                       decoration: BoxDecoration(
                         color: ColorGlobal.textColor,

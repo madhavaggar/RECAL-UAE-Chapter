@@ -13,14 +13,14 @@ Future main() async {
     title: 'Recal UAE',
     debugShowCheckedModeBanner: false,
     theme: new ThemeData(
-      primarySwatch: Colors.red,
+      primarySwatch: Colors.blue,
     ),
-    home: new ImageSplashScreen(),
-    routes: <String, WidgetBuilder>{
-      HOME_SCREEN: (BuildContext context) => new HomeScreen(),
-      IMAGE_SPLASH: (BuildContext context) => new ImageSplashScreen(),
+    home: ImageSplashScreen(),
+    routes: <String, WidgetBuilder> {
       LOGIN_SCREEN: (BuildContext context) => new Login(),
-      PROFILE_SCREEN: (BuildContext context) => new Profile(),
+      HOME_SCREEN: (BuildContext context) => new HomePage(),
+      IMAGE_SPLASH: (BuildContext context) => new ImageSplashScreen(),
+      PROFILE_SCREEN: (BuildContext context) => new ProfileScreen(),
     }
   ));
 }

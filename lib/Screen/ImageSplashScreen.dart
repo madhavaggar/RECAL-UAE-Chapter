@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:shared_preferences/shared_preferences.dart';
+
 import '../Constant/Constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,13 +13,30 @@ class ImageSplashScreen extends StatefulWidget {
 }
 
 class SplashScreenState extends State<ImageSplashScreen> {
+  SharedPreferences sharedPreferences;
+  String userID;
+
   startTime() async {
     var _duration = new Duration(seconds: 5);
     return new Timer(_duration, navigationPage);
   }
+  Future <Null> _getUserDetails() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String id = prefs.getString("userID")==null ? "none": prefs.getString("userID");
+    print("splash: " + id);
+    if(id!="none")
+    setState(() {
+      userID=id;
+    });
+  }
 
-  void navigationPage() {
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Login()));
+  void navigationPage() async {
+    await _getUserDetails();
+    print("nav page: $userID");
+    if(userID==null)
+    Navigator.pushReplacementNamed(context, LOGIN_SCREEN);
+    else
+      Navigator.pushReplacementNamed(context, HOME_SCREEN);
   }
 
   @override

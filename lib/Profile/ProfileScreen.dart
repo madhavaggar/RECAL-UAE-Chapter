@@ -2,19 +2,55 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../Constant/Constant.dart';
 import '../Constant/ColorGlobal.dart';
-import '../Constant/TextField.dart';
 import 'package:badges/badges.dart';
 import 'EditProfile.dart';
 
-class Profile extends StatefulWidget {
+class ProfileScreen extends StatefulWidget {
   @override
-  _ProfileState createState() => _ProfileState();
+  _ProfileScreenState createState() => _ProfileScreenState();
 }
 
-class _ProfileState extends State<Profile> {
+class _ProfileScreenState extends State<ProfileScreen> {
   int _unfinished=2;
+
+  _deleteUserDetails() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString("userID", null);
+  }
+  Future<bool> _onLogoutPressed() {
+    return showDialog(
+      context: context,
+      builder: (context) => new AlertDialog(
+        title: new Text('Are you sure?'),
+        content: new Text('Do you want to Logout?'),
+        actions: <Widget>[
+          new GestureDetector(
+            onTap: () => Navigator.of(context).pop(false),
+            child: FlatButton(
+              color: Colors.green,
+              child: Text("NO"),
+            ),
+          ),
+          new GestureDetector(
+            onTap: () {
+              Navigator.pop(context,true);
+              Navigator.of(context).pushReplacementNamed(LOGIN_SCREEN);
+            },
+            child: FlatButton(
+              color: Colors.red,
+              child: Text("YES"),
+            ),
+          ),
+        ],
+      ),
+    ) ??
+        false;
+  }
 
 
   @override
@@ -24,10 +60,21 @@ class _ProfileState extends State<Profile> {
           backgroundColor: ColorGlobal.whiteColor,
           appBar: AppBar(
             backgroundColor: ColorGlobal.whiteColor,
-            leading: IconButton(
-              icon: Icon(Icons.arrow_back, color: ColorGlobal.textColor),
-              onPressed: () => Navigator.of(context).pop(),
-            ),
+            actions: <Widget>[
+            IconButton(
+              icon: Container(
+                child: SvgPicture.asset(
+                  "assets/icons/Logout.svg",
+                  color: ColorGlobal.textColor,
+                ),
+                height: 20,
+              ),
+              onPressed: () {
+                _deleteUserDetails();
+                _onLogoutPressed();
+              },
+            )
+          ],
             title: Text('Profile',style: TextStyle(color: ColorGlobal.textColor),),
           ),
           body: SingleChildScrollView(
@@ -110,7 +157,7 @@ class _ProfileState extends State<Profile> {
                                 PageTransition(
                                     type: PageTransitionType.downToUp,
                                     duration: Duration(milliseconds: 400),
-                                    child: EditProfile()));
+                                    child: EditProfileScreen()));
                           },
                           child: Container(
                             decoration: BoxDecoration(
