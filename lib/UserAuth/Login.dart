@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../Constant/Constant.dart';
 import '../Profile/ProfileScreen.dart';
 import '../Constant/ColorGlobal.dart';
@@ -69,7 +70,9 @@ class LoginState extends State<Login> {
             ),
           ),
           new GestureDetector(
-            onTap: () => Navigator.of(context).pop(true),
+            onTap: () {
+              Navigator.of(context, rootNavigator: true).pop(true);
+            },
             child: FlatButton(
               color: Colors.red,
               child: Text("YES"),
@@ -79,6 +82,13 @@ class LoginState extends State<Login> {
       ),
     ) ??
         false;
+  }
+
+  _saveUserDetails() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    print("Login:  ${prefs.getString("userID")}");
+    prefs.setString("userID", email.text);
+    print("login save ${prefs.getString("userID")}");
   }
 
   @override
@@ -186,7 +196,12 @@ class LoginState extends State<Login> {
                           ),
                           //child: AuthButton(),
                           child:   InkWell(
-                            onTap: () { Navigator.pushNamed(context, PROFILE_SCREEN); },
+                            onTap: () {
+                              if(email.text!="") {
+                                _saveUserDetails();
+                                Navigator.pushReplacementNamed(context, HOME_SCREEN);
+                              }
+                              },
                             child: Container(
                               margin: EdgeInsets.only(
                                 top: (30),

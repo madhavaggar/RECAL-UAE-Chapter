@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'ColorGlobal.dart';
 
@@ -23,12 +24,13 @@ class TextFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       onChanged: onChanged,
       obscureText: obscureText,
       controller: textEditingController,
       cursorColor: ColorGlobal.textColor,
       focusNode:  focusNode,
+      keyboardType: hintText=='Email'? TextInputType.emailAddress : null,
       style: TextStyle(
         color: ColorGlobal.textColor,
         fontWeight: FontWeight.w600,
