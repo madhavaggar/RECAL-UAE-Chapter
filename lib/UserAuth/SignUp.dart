@@ -237,7 +237,7 @@ class SignUpState extends State<SignUp> {
                           context,
                           PageTransition(
                             type: PageTransitionType.leftToRight,
-                            duration: Duration(milliseconds: 500),
+                            duration: Duration(milliseconds: 300),
                           ));
                       setState(() {
                         width = 400;
@@ -247,7 +247,7 @@ class SignUpState extends State<SignUp> {
                     child: AnimatedContainer(
                       height: 65.0,
                       width: width,
-                      duration: Duration(milliseconds: 500),
+                      duration: Duration(milliseconds: 300),
                       curve: Curves.linear,
                       child: Row(
                         children: <Widget>[

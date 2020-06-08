@@ -118,7 +118,7 @@ class HomePageState extends State<HomePage> {
 //          elevation: 0.0,
 //        ),
             bottomNavigationBar: CurvedNavigationBar(
-              backgroundColor: Colors.transparent,
+              backgroundColor: ColorGlobal.whiteColor,
               color: Colors.black,
               buttonBackgroundColor: ColorGlobal.color2,
               height: 50,

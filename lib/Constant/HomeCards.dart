@@ -40,7 +40,7 @@ class _HomeCardsState extends State<HomeCards> {
             margin: EdgeInsets.only(top: 6.0),
             child: Text(
               widget.title,
-              style: TextStyle(fontSize: 20.0, color:  ColorGlobal.color4),
+              style: TextStyle(fontSize: 18.0, color:  ColorGlobal.color4),
               textAlign: TextAlign.center,
             ),
           )

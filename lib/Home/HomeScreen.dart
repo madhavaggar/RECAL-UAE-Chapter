@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../Constant/HomeCards.dart';
 import '../Constant/ColorGlobal.dart';
@@ -8,7 +9,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   static List<String> _events = [
     "Social",
     "Events",
@@ -28,10 +28,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         body: Stack(
-          children: <Widget> [
+
+          children: <Widget>[
             ClipPath(
               child: Container(
-                height: MediaQuery.of(context).size.height*0.50,
+                height: MediaQuery.of(context).size.height * 0.60,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage("assets/images/admin.jpeg"),
@@ -41,41 +42,37 @@ class _HomeScreenState extends State<HomeScreen> {
               clipper: Header(),
             ),
             Container(
-              margin: EdgeInsets.only(top: 120.0),
-              child: OrientationBuilder(builder: (context, orientation) {
-                return GridView(
-//crossAxisCount: orientation==Orientation.portrait?2:3,
-                  gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-//crossAxisCount: 2,
-//crossAxisSpacing: 2.0,
-                  children: _events.map((title) {
-                    return Container(
-                      decoration: BoxDecoration(),
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Card(
-                          margin: EdgeInsets.all(25.0),
-                          color: Colors.white.withOpacity(0.8),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          elevation: 0.3,
-                          child: HomeCards(title: title),
+              child: GridView.count(
+                crossAxisCount: 2,
+                childAspectRatio: 1.0,
+                padding: const EdgeInsets.all(4.0),
+                mainAxisSpacing: 4.0,
+                crossAxisSpacing: 4.0,
+                children: _events.map((title) {
+                  return Container(
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: Card(
+                        margin: EdgeInsets.all(25.0),
+                        color: Colors.white.withOpacity(0.8),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
                         ),
+                        elevation: 0.3,
+                        child: HomeCards(title: title),
                       ),
-                    );
-                  }).toList(),
-                );
-              }),
+                    ),
+                  );
+                }).toList(),
+              ),
             ),
-
           ],
         ),
       ),
     );
   }
 }
+
 class Header extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
@@ -95,4 +92,3 @@ class Header extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
-

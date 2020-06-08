@@ -289,7 +289,7 @@ class LoginState extends State<Login> {
                                 context,
                                 PageTransition(
                                     type: PageTransitionType.rightToLeft,
-                                    duration: Duration(milliseconds: 500),
+                                    duration: Duration(milliseconds: 300),
                                     child: SignUp()))
                             .then((value) {
                           Future.delayed(Duration(milliseconds: 300), () {
