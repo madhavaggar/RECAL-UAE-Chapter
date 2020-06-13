@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:AeologicSplashDemo/Constant/Constant.dart';
+import 'package:uae_recal_app/Constant/Constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

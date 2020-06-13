@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:AeologicSplashDemo/Constant/Constant.dart';
-import 'package:AeologicSplashDemo/Screen/HomePage.dart';
-import 'package:AeologicSplashDemo/Screen/ImageSplashScreen.dart';
+import 'package:uae_recal_app/Constant/Constant.dart';
+import 'package:uae_recal_app/Screen/HomePage.dart';
+import 'package:uae_recal_app/Screen/ImageSplashScreen.dart';
 import 'package:flutter/material.dart';
 
 Future main() async {

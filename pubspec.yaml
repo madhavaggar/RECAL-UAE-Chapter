@@ -1,4 +1,4 @@
-name: UAE RECAL APP
+name: uae_recal_app
 description: An APP made to for the Alumni Network
 
 dependencies:
@@ -10,6 +10,8 @@ dependencies:
   cupertino_icons: ^0.1.2
   video_player: ^0.8.0
   shared_preferences: "^0.4.2"
+  flutter_fadein: ^1.1.1
+  url_launcher: ^5.4.10 
 
 dev_dependencies:
   flutter_test:
