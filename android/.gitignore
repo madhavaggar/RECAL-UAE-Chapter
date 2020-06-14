@@ -1,19 +1,7 @@
-<<<<<<< HEAD
-*.iml
-*.class
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
-.DS_Store
-/build
-/captures
-=======
 gradle-wrapper.jar
 /.gradle
 /captures/
 /gradlew
 /gradlew.bat
 /local.properties
->>>>>>> 3341e621d1b7d4af7abf53760136a17528568db1
 GeneratedPluginRegistrant.java
