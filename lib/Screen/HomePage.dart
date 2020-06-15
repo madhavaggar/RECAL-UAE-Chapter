@@ -1,6 +1,6 @@
 import '../Achievements/AchievementsScreen.dart';
 import '../Home/HomeScreen.dart';
-import '../Inbox/InboxScreen.dart';
+import '../Events/EventsScreen.dart';
 import '../UAEChapter/ChapterScreen.dart';
 import '../Profile/ProfileScreen.dart';
 import '../Constant/ColorGlobal.dart';
@@ -15,9 +15,9 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  int _index = 4;
+  int _index = 2;
   Widget _showPage= Scaffold(
-    body: ProfileScreen(),
+    body: HomeScreen(),
   );
 
   @override
@@ -36,7 +36,7 @@ class HomePageState extends State<HomePage> {
     "UAE Chapter",
     "Achievements",
     "Home",
-    "Inbox",
+    "Events",
     "Profile",
   ];
   Widget _getHomeWidgets(index,context) {
@@ -47,7 +47,7 @@ class HomePageState extends State<HomePage> {
       break;
       case 2: return (HomeScreen());
       break;
-      case 3: return(InboxScreen());
+      case 3: return(EventsScreen());
       break;
       case 4: return(ProfileScreen());
       break;
@@ -140,7 +140,7 @@ class HomePageState extends State<HomePage> {
                   color: ColorGlobal.color3,
                 ),
                 Icon(
-                  Icons.mail,
+                  Icons.event,
                   size: 30,
                   color: ColorGlobal.color3,
                 ),

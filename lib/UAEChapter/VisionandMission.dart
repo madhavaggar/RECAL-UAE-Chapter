@@ -68,7 +68,7 @@ class _FadeInDemoState extends State<VisionMission> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-//                        Image.asset('assets/images/Vision.png'),
+                        Image.asset('assets/images/Vision.png'),
                           FadeIn(
                             child: Text(
                               "VISION",
@@ -95,7 +95,7 @@ class _FadeInDemoState extends State<VisionMission> {
                             duration: Duration(milliseconds: 2000),
                             curve: Curves.easeIn,
                           ),
-//                        Image.asset('assets/images/mission.png'),
+                        Image.asset('assets/images/mission.png'),
                           FadeIn(
                             child: Text(
                               "MISSION",

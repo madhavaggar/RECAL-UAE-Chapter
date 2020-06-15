@@ -108,18 +108,6 @@ class _ChapterScreenState extends State<ChapterScreen> {
                         },
                       ),
                       ListTile(
-                        leading: Icon(Icons.attach_money,size: 30),
-                        title: Text('Sponsors'),
-                        onTap: (){
-                          Navigator.push(
-                            context,
-                            PageTransition(
-                                type: PageTransitionType.rightToLeft,
-                                duration: Duration(milliseconds: 300),
-                                child: Sponsors()),);
-                        },
-                      ),
-                      ListTile(
                         leading: Icon(Icons.credit_card,size: 30),
                         title: Text('Pay'),
                         onTap: (){

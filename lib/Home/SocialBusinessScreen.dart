@@ -342,8 +342,7 @@ class _SocialPageState extends State<SocialPage> {
                         padding: EdgeInsets.all(0.0),
                         child: InkWell(
                           onTap: (){
-                            Navigator.push(context,
-                            PageTransition(type: PageTransitionType.rightToLeft,child: SocialMediaScreen()));
+                            showDialog(context: context,builder: (context)=> SocialMediaScreen());
                           },
                           child: Ink(
                             decoration: BoxDecoration(

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import '../Constant/ColorGlobal.dart';
 
-class InboxScreen extends StatefulWidget {
+class EventsScreen extends StatefulWidget {
   @override
-  _InboxScreenState createState() => _InboxScreenState();
+  _EventsScreenState createState() => _EventsScreenState();
 }
 
-class _InboxScreenState extends State<InboxScreen> {
+class _EventsScreenState extends State<EventsScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea (
@@ -14,13 +14,13 @@ class _InboxScreenState extends State<InboxScreen> {
         appBar: AppBar(
           backgroundColor: ColorGlobal.whiteColor,
           title: Text(
-            'Inbox',
+            'Events',
             style: TextStyle(color: ColorGlobal.textColor),
           ),
         ),
         body: Container(
           child: Center(
-            child: Text("Inbox"),
+            child: Text("Events"),
           ),
         ),
       ),

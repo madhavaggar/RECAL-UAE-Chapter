@@ -58,7 +58,7 @@ class PayPage extends StatelessWidget {
                       ),
                       SizedBox(height: 6.0),
                       Text(
-                        'Branch Address : qwerty asdfg',
+                        'Branch Address : NA',
                         style: TextStyle(
                           fontSize: 20.0,
                           color: Colors.white,

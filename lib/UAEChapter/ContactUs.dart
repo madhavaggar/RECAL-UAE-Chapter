@@ -1,7 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../Constant/ColorGlobal.dart';
 
 class  ContactUs extends StatelessWidget {
+
+  _callMe() async {
+    // Android
+    const uri = 'tel:+971 55 1086104';
+    if (await canLaunch(uri)) {
+      await launch(uri);
+    } else {
+      // iOS
+      const uri = 'tel:971-55-1086104';
+      if (await canLaunch(uri)) {
+        await launch(uri);
+      } else {
+        throw 'Could not launch $uri';
+      }
+    }
+  }
+  _sendMail() async {
+    // Android and iOS
+    const uri = 'mailto:recaluaechapter@gmail.com?subject=Recal UAE Chapter&body=Greetings';
+    if (await canLaunch(uri)) {
+      await launch(uri);
+    } else {
+      throw 'Could not launch $uri';
+    }
+  }
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
@@ -48,37 +74,45 @@ class  ContactUs extends StatelessWidget {
                           Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
-                              Row(
-                                children: <Widget>[
-                                  IconButton(
-                                    icon: Icon(
-                                      Icons.email,
-                                      color: Colors.white70,
+                              GestureDetector(
+                                onTap: _sendMail,
+                                child: Row(
+                                  children: <Widget>[
+                                    IconButton(
+                                      icon: Icon(
+                                        Icons.email,
+                                        color: Colors.white,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    'Email\nrecaluaechapter@gmail.com',
-                                    style: TextStyle(
-                                      color: Colors.white70,
+                                    Text(
+                                      'Email\nrecaluaechapter@gmail.com',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                              Row(
-                                children: <Widget>[
-                                  IconButton(
-                                    icon: Icon(
-                                      Icons.phone_android,
-                                      color: Colors.white70,
+                              GestureDetector(
+                                onTap: _callMe,
+                                child: Row(
+                                  children: <Widget>[
+                                    IconButton(
+                                      icon: Icon(
+                                        Icons.phone_android,
+                                        color: Colors.white,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    'Phone\n+971-55-1086104',
-                                    style: TextStyle(
-                                      color: Colors.white70,
+                                    Text(
+                                      'Phone\n+971-55-1086104',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ],
                           ),
