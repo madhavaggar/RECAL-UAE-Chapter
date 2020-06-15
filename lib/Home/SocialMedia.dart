@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:url_launcher/url_launcher.dart';
+
+
 //void main() => runApp(new MyApp());
-class SocialMedia extends StatelessWidget {
+class SocialMediaScreen extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new SocialScreen(),
-    );
-  }
-}
-class SocialScreen extends StatefulWidget {
-  @override
-  SocialScreenState createState() => new SocialScreenState();
+  SocialMediaScreenState createState() => new SocialMediaScreenState();
 }
 _launchfacebook() async {
   const url = 'https://www.facebook.com/NITT.Official/';
@@ -54,7 +48,7 @@ _launchlinkedin() async {
     throw 'Could not launch $url';
   }
 }
-class SocialScreenState extends State<SocialScreen> {
+class SocialMediaScreenState extends State<SocialMediaScreen> {
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;

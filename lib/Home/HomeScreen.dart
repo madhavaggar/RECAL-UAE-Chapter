@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:recaluae/Constant/Constant.dart';
+import 'SocialBusinessScreen.dart';
 import '../Constant/HomeCards.dart';
 import '../Constant/ColorGlobal.dart';
 
@@ -28,8 +30,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         body: Stack(
-
           children: <Widget>[
+
             ClipPath(
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.60,
@@ -51,7 +53,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: _events.map((title) {
                   return Container(
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        if(title=="Social")
+                          Navigator.pushNamed(context, SOCIAL_BUSINESS);
+                      },
                       child: Card(
                         margin: EdgeInsets.all(25.0),
                         color: Colors.white.withOpacity(0.8),

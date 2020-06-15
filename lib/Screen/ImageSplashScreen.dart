@@ -17,7 +17,7 @@ class SplashScreenState extends State<ImageSplashScreen> {
   String userID;
 
   startTime() async {
-    var _duration = new Duration(seconds: 5);
+    var _duration = new Duration(seconds: 1);
     return new Timer(_duration, navigationPage);
   }
   Future <Null> _getUserDetails() async {
@@ -36,7 +36,7 @@ class SplashScreenState extends State<ImageSplashScreen> {
     if(userID==null)
     Navigator.pushReplacementNamed(context, LOGIN_SCREEN);
     else
-      Navigator.pushReplacementNamed(context, HOME_SCREEN);
+      Navigator.pushReplacementNamed(context, HOME_PAGE);
   }
 
   @override

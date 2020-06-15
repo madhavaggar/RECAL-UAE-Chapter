@@ -1,13 +1,9 @@
 import 'dart:async';
 
-
-
-
-
 import 'package:flutter/services.dart';
-
+import 'Home/HomeScreen.dart';
+import 'Home/SocialBusinessScreen.dart';
 import 'Profile/ProfileScreen.dart';
-
 import './Constant/Constant.dart';
 import './Screen/HomePage.dart';
 import './Screen/ImageSplashScreen.dart';
@@ -29,9 +25,11 @@ void main()  {
             home: ImageSplashScreen(),
             routes: <String, WidgetBuilder> {
               LOGIN_SCREEN: (BuildContext context) => new Login(),
-              HOME_SCREEN: (BuildContext context) => new HomePage(),
+              HOME_PAGE: (BuildContext context) => new HomePage(),
               IMAGE_SPLASH: (BuildContext context) => new ImageSplashScreen(),
               PROFILE_SCREEN: (BuildContext context) => new ProfileScreen(),
+              HOME_SCREEN: (BuildContext context) => new HomeScreen(),
+              SOCIAL_BUSINESS: (BuildContext context) => new SocialPage(),
             }
         ));
   });

@@ -199,7 +199,7 @@ class LoginState extends State<Login> {
                             onTap: () {
                               if(email.text!="") {
                                 _saveUserDetails();
-                                Navigator.pushReplacementNamed(context, HOME_SCREEN);
+                                Navigator.pushReplacementNamed(context, HOME_PAGE);
                               }
                               },
                             child: Container(
