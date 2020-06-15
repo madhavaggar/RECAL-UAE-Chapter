@@ -1,6 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../Constant/Constant.dart';
+import '../Profile/ProfileScreen.dart';
 import '../Constant/ColorGlobal.dart';
 import '../Constant/TextField.dart';
 
@@ -57,7 +60,7 @@ class LoginState extends State<Login> {
       context: context,
       builder: (context) => new AlertDialog(
         title: new Text('Are you sure?'),
-        content: new Text('Do you want to exit an App'),
+        content: new Text('Do you want to exit the App'),
         actions: <Widget>[
           new GestureDetector(
             onTap: () => Navigator.of(context).pop(false),
@@ -67,7 +70,9 @@ class LoginState extends State<Login> {
             ),
           ),
           new GestureDetector(
-            onTap: () => Navigator.of(context).pop(true),
+            onTap: () {
+              Navigator.of(context, rootNavigator: true).pop(true);
+            },
             child: FlatButton(
               color: Colors.red,
               child: Text("YES"),
@@ -77,6 +82,13 @@ class LoginState extends State<Login> {
       ),
     ) ??
         false;
+  }
+
+  _saveUserDetails() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    print("Login:  ${prefs.getString("userID")}");
+    prefs.setString("userID", email.text);
+    print("login save ${prefs.getString("userID")}");
   }
 
   @override
@@ -184,6 +196,12 @@ class LoginState extends State<Login> {
                           ),
                           //child: AuthButton(),
                           child:   InkWell(
+                            onTap: () {
+                              if(email.text!="") {
+                                _saveUserDetails();
+                                Navigator.pushReplacementNamed(context, HOME_SCREEN);
+                              }
+                              },
                             child: Container(
                               margin: EdgeInsets.only(
                                 top: (30),
@@ -271,7 +289,7 @@ class LoginState extends State<Login> {
                                 context,
                                 PageTransition(
                                     type: PageTransitionType.rightToLeft,
-                                    duration: Duration(milliseconds: 800),
+                                    duration: Duration(milliseconds: 300),
                                     child: SignUp()))
                             .then((value) {
                           Future.delayed(Duration(milliseconds: 300), () {
@@ -282,14 +300,14 @@ class LoginState extends State<Login> {
                           });
                         });
                         setState(() {
-                          width = 400.0;
+                          width = 360.0;
                           widthIcon = 0;
                         });
                       },
                       child: AnimatedContainer(
                         height: 65.0,
                         width: width,
-                        duration: Duration(milliseconds: 1000),
+                        duration: Duration(milliseconds: 500),
                         child: Row(
                           children: <Widget>[
                             Container(

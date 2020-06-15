@@ -1,42 +1,101 @@
+
 import 'package:recaluae/Constant/utils.dart';
 import 'package:recaluae/Screen/volunteer.dart';
 
 import '../Constant/Constant.dart';
+
+import '../Achievements/AchievementsScreen.dart';
+import '../Home/HomeScreen.dart';
+import '../Inbox/InboxScreen.dart';
+import '../UAEChapter/ChapterScreen.dart';
+import '../Profile/ProfileScreen.dart';
+import '../Constant/ColorGlobal.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:ui';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import '../Constant/Card.dart';
-import '../Constant/color_shades.dart' as color_shades;
-import '../UserAuth/Login.dart';
-import 'package:flare_flutter/flare_actor.dart';
-import 'package:page_transition/page_transition.dart';
 
 
-class HomeScreen extends StatefulWidget {
+
+class HomePage extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  HomePageState createState() => new HomePageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class HomePageState extends State<HomePage> {
+  int _index = 4;
+  Widget _showPage= Scaffold(
+    body: ProfileScreen(),
+  );
 
-  List<String> events = [
-    "Social",
-    "Events",
-    "Mentor Support",
-    "Employment",
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+//    Navigator.pushReplacement(
+//        context,
+//        PageTransition(
+//            type: PageTransitionType.rightToLeftWithFade,
+//            child: Login()));
+  }
+  static List<String> _pages = [
+    "UAE Chapter",
+    "Achievements",
+    "Home",
+    "Inbox",
+    "Profile",
   ];
-
+  Widget _getHomeWidgets(index,context) {
+    switch(index) {
+      case 0: return (ChapterScreen());
+      break;
+      case 1: return (AchievementsScreen());
+      break;
+      case 2: return (HomeScreen());
+      break;
+      case 3: return(InboxScreen());
+      break;
+      case 4: return(ProfileScreen());
+      break;
+      default: return(ProfileScreen());
+    }
+  }
+Future<bool> _onBackPressed() {
+    return showDialog(
+          context: context,
+          builder: (context) => new AlertDialog(
+            title: new Text('Are you sure?'),
+            content: new Text('Do you want to exit the App'),
+            actions: <Widget>[
+              new GestureDetector(
+                onTap: () => Navigator.of(context).pop(false),
+                child: FlatButton(
+                  color: Colors.green,
+                  child: Text("NO"),
+ ),
+              ),
+new GestureDetector(
+                onTap: () => Navigator.of(context).maybePop(true),
+                child: FlatButton(
+                  color: Colors.red,
+                  child: Text("YES"),
+                ),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+  }            
 
   @override
   Widget build(BuildContext context) {
     final screeSize = MediaQuery.of(context).size;
     UIUtills()
         .updateScreenDimesion(width: screeSize.width, height: screeSize.height);
-    return Stack(fit: StackFit.expand, children: <Widget>[
+    return  WillPopScope(
+      onWillPop: _onBackPressed,
+      child: Stack( 
+      fit: StackFit.expand, children: <Widget>[
       Stack(fit: StackFit.expand, children: [
         Container(
           color: Colors.white,
@@ -67,10 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: SvgPicture.asset(
                   "assets/icons/Logout.svg",
                   color: Colors.white70,
-                ),
-                height: 20,
-              ),
-              onPressed: () {},
+                    onPressed: () {},
             )
           ],
           title: Text('Home'),
@@ -112,7 +168,11 @@ class _HomeScreenState extends State<HomeScreen> {
           animationCurve: Curves.bounceInOut,
           animationDuration: Duration(milliseconds: 200),
           index: 2,
-          onTap: (index) {},
+          onTap: (int tappedIndex) {
+                setState(() {
+                  _showPage = _getHomeWidgets(tappedIndex, context);
+                });
+              },
         ),
         body: OrientationBuilder(builder: (context, orientation) {
           return Container(
@@ -145,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         }),
       )
-    ]);
+    ]));
   }
 }
 class Header extends CustomClipper<Path> {
@@ -167,3 +227,4 @@ class Header extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
+

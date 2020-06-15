@@ -60,19 +60,9 @@ class SignUpState extends State<SignUp> {
                   padding: EdgeInsets.only(),
                   height: size.height-90,
                   color: ColorGlobal.whiteColor,
-//                  decoration: BoxDecoration(
-//                    gradient: new LinearGradient(
-//                      colors: [
-//                        ColorGlobal.colorPrimaryDark.withOpacity(0.8),
-//                        ColorGlobal.colorPrimary,
-//                      ],
-//                      begin: Alignment.topLeft,
-//                      end: Alignment.bottomRight,
-//                    ),
-//                  ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 30.0),
+                  padding: const EdgeInsets.only(top: 30.0,bottom: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -109,7 +99,7 @@ class SignUpState extends State<SignUp> {
                   padding: const EdgeInsets.only(
                     right: 22,
                     left: 22,
-                    top: 170,
+                    top: 180,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -124,7 +114,7 @@ class SignUpState extends State<SignUp> {
                         ),
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 10,
                       ),
                       Row (
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -151,7 +141,7 @@ class SignUpState extends State<SignUp> {
                         ],
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 10,
                       ),
                       Container(
                         child: TextFieldWidget(
@@ -163,7 +153,7 @@ class SignUpState extends State<SignUp> {
                         ),
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 10,
                       ),
                       Container(
                         child: TextFieldWidget(
@@ -177,9 +167,10 @@ class SignUpState extends State<SignUp> {
                       InkWell(
                         child: Container(
                           margin: EdgeInsets.only(
-                            top: (15),
+                            top: (20),
                             right: (8),
                             left: (8),
+                            bottom: (20),
                           ),
                           height: (60.0),
                           decoration: BoxDecoration(
@@ -202,7 +193,7 @@ class SignUpState extends State<SignUp> {
                             border: Border.all(
                               width: 2,
                               color: ColorGlobal
-                                  .colorPrimary, //                   <--- border width here
+                                  .colorPrimary,
                             ),
                             color: ColorGlobal.whiteColor,
                             borderRadius: BorderRadius.all(
@@ -238,17 +229,15 @@ class SignUpState extends State<SignUp> {
           color: ColorGlobal.whiteColor,
           height: 70,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
                   InkWell(
                     onTap: () {
                       Navigator.pop(
                           context,
                           PageTransition(
                             type: PageTransitionType.leftToRight,
-                            duration: Duration(milliseconds: 800),
+                            duration: Duration(milliseconds: 300),
                           ));
                       setState(() {
                         width = 400;
@@ -258,7 +247,7 @@ class SignUpState extends State<SignUp> {
                     child: AnimatedContainer(
                       height: 65.0,
                       width: width,
-                      duration: Duration(milliseconds: 1000),
+                      duration: Duration(milliseconds: 300),
                       curve: Curves.linear,
                       child: Row(
                         children: <Widget>[
@@ -318,17 +307,9 @@ class SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
-                ],
-              ),
-            ],
+              ]
           ),
-        ),
-
-//      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-//      floatingActionButton: FloatingActionButton.extended(
-//
-//          icon: Icon(Icons.update),
-//          label: Text("Transform")),
+          ),
       ),
     );
   }
@@ -344,8 +325,8 @@ class Branch extends StatefulWidget {
 }
 
 class _BranchState extends State<Branch> {
-  String branch = 'CSE';
-  String year = '2019';
+  String _branch;
+  String _year;
   List <String> all = new List<String>();
 
   List<String> getYears() {
@@ -376,20 +357,20 @@ class _BranchState extends State<Branch> {
 
   @override
   Widget build(BuildContext context) {
-    print('${widget.select}\n');
-    print(branch);
-    print(all);
+//    print('${widget.select}\n');
+//    print(_branch);
+//    print(all);
     if(widget.select==0) {
       return DropdownButton<String>(
-        hint: Text('Branch',style: TextStyle(color: ColorGlobal.textColor,fontWeight: FontWeight.bold),),
-        value: branch.isNotEmpty? branch : null,
+        hint: Text('Branch'),
+        value: _branch,
         icon: Icon(Icons.arrow_drop_down),
         iconSize: 24,
         elevation: 16,
-        style: TextStyle(color: ColorGlobal.textColor),
+        style: TextStyle(color: ColorGlobal.textColor,fontWeight: FontWeight.w600,fontSize: 16.0),
         onChanged: (String newValue) {
           setState(() {
-            branch = newValue;
+            _branch = newValue;
           });
         },
         items: getBranches().map<DropdownMenuItem<String>>((String value) {
@@ -402,15 +383,15 @@ class _BranchState extends State<Branch> {
     }
     else {
           return DropdownButton<String>(
-            hint: Text('Year of Passing',style: TextStyle(color: ColorGlobal.textColor),),
-            value: year.isNotEmpty? year: null,
+            hint: Text('Year of Passing'),
+            value: _year,
               icon: Icon(Icons.arrow_drop_down),
               iconSize: 24,
               elevation: 16,
-              style: TextStyle(color: ColorGlobal.textColor),
+              style: TextStyle(color: ColorGlobal.textColor,fontWeight: FontWeight.w600,fontSize: 16.0),
               onChanged: (String newValue) {
               setState(() {
-              year = newValue;
+              _year = newValue;
               });
               },
               items: getYears().map<DropdownMenuItem<String>>((String value) {
