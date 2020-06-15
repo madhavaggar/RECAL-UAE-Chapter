@@ -56,6 +56,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       onTap: () {
                         if(title=="Social")
                           Navigator.pushNamed(context, SOCIAL_BUSINESS);
+                        else if(title=="Employment")
+                          Navigator.pushNamed(context, EMPLOYMENT_SUPPORT);
+                        else if(title=="Mentor Support")
+                          Navigator.pushNamed(context, MENTOR_GROUPS);
                       },
                       child: Card(
                         margin: EdgeInsets.all(25.0),

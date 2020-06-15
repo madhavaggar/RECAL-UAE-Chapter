@@ -1,6 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/services.dart';
+import 'Home/LinkedInProfiles.dart';
+import 'Home/MentorGroups.dart';
+import 'Home/EmploymentSupport.dart';
 import 'Home/HomeScreen.dart';
 import 'Home/SocialBusinessScreen.dart';
 import 'Profile/ProfileScreen.dart';
@@ -30,6 +33,10 @@ void main()  {
               PROFILE_SCREEN: (BuildContext context) => new ProfileScreen(),
               HOME_SCREEN: (BuildContext context) => new HomeScreen(),
               SOCIAL_BUSINESS: (BuildContext context) => new SocialPage(),
+              EMPLOYMENT_SUPPORT: (BuildContext context) => new EmploymentSupport(),
+              MENTOR_GROUPS: (BuildContext context) => new MentorGroups(),
+              MEMBER_LINKEDIN: (BuildContext context) => new LinkedIn(),
+
             }
         ));
   });

@@ -4,25 +4,25 @@ import 'package:url_launcher/url_launcher.dart';
 class LinkedIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'ListViews',
-      home: Scaffold(
-        backgroundColor: Color(0xff544f50),
-        appBar: AppBar(
-          title: Text('LinkedIn Profiles'),
-          leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back,
-              color: Colors.white,
+    return SafeArea(
+
+      child: Scaffold(
+          backgroundColor: Color(0xff544f50),
+          appBar: AppBar(
+            title: Text('LinkedIn Profiles'),
+            leading: IconButton(
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                // do something
+                Navigator.pop(context);
+              },
             ),
-            onPressed: () {
-              // do something
-            },
           ),
+          body: LinkedInList(),
         ),
-        body: LinkedInList(),
-      ),
     );
   }
 }
