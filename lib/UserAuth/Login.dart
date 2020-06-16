@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:recaluae/Home/HomeActivity.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../Constant/Constant.dart';
 import '../Profile/ProfileScreen.dart';
@@ -199,7 +200,7 @@ class LoginState extends State<Login> {
                             onTap: () {
                               if(email.text!="") {
                                 _saveUserDetails();
-                                Navigator.pushReplacementNamed(context, HOME_SCREEN);
+                                Navigator.pushReplacementNamed(context, HOME_PAGE);
                               }
                               },
                             child: Container(

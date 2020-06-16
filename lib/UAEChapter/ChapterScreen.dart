@@ -2,6 +2,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'ContactUs.dart';
+import 'Pay.dart';
 import 'VisionandMission.dart';
 import 'Sponsors.dart';
 import 'CoreComm.dart';
@@ -77,9 +79,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
                       ],
                     ),
                   ),
-                Container(
-                  height: 200,
-                  margin: EdgeInsets.symmetric(vertical: 20),
+                Expanded(
                   child: ListView(
                     padding: EdgeInsets.symmetric(horizontal: 10),
                     children: <Widget>[
@@ -108,17 +108,30 @@ class _ChapterScreenState extends State<ChapterScreen> {
                         },
                       ),
                       ListTile(
-                        leading: Icon(Icons.attach_money,size: 30),
-                        title: Text('Sponsors'),
+                        leading: Icon(Icons.credit_card,size: 30,),
+                        title: Text('Pay'),
                         onTap: (){
                           Navigator.push(
                             context,
                             PageTransition(
                                 type: PageTransitionType.rightToLeft,
                                 duration: Duration(milliseconds: 300),
-                                child: Sponsors()),);
+                                child: PayPage()),);
                         },
                       ),
+                      ListTile(
+                        leading: Icon(Icons.phone,size: 30),
+                        title: Text('Contact us'),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                                type: PageTransitionType.rightToLeft,
+                                duration: Duration(milliseconds: 300),
+                                child: ContactUs()),);
+                        },
+                      ),
+
                     ],
                   ),
                 ),

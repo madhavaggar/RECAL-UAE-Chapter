@@ -1,6 +1,8 @@
+import 'package:recaluae/Home/HomeActivity.dart';
+
 import '../Achievements/AchievementsScreen.dart';
 import '../Home/HomeScreen.dart';
-import '../Inbox/InboxScreen.dart';
+import '../Events/EventsScreen.dart';
 import '../UAEChapter/ChapterScreen.dart';
 import '../Profile/ProfileScreen.dart';
 import '../Constant/ColorGlobal.dart';
@@ -15,9 +17,9 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  int _index = 4;
+  int _index = 2;
   Widget _showPage= Scaffold(
-    body: ProfileScreen(),
+    body: HomeActivity(),
   );
 
   @override
@@ -36,7 +38,7 @@ class HomePageState extends State<HomePage> {
     "UAE Chapter",
     "Achievements",
     "Home",
-    "Inbox",
+    "Events",
     "Profile",
   ];
   Widget _getHomeWidgets(index,context) {
@@ -45,9 +47,9 @@ class HomePageState extends State<HomePage> {
       break;
       case 1: return (AchievementsScreen());
       break;
-      case 2: return (HomeScreen());
+      case 2: return (HomeActivity());
       break;
-      case 3: return(InboxScreen());
+      case 3: return(EventsScreen());
       break;
       case 4: return(ProfileScreen());
       break;
@@ -86,18 +88,9 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: _onBackPressed,
-      child: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          Stack(fit: StackFit.expand, children: [
-            Container(
-              color: Colors.white,
-            ),
-          ],
-          ),
-
-          Scaffold(
-            backgroundColor: Colors.transparent,
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
 //        appBar: new AppBar(
 //          backgroundColor: Colors.black.withOpacity(0.5),
 //          actions: <Widget>[
@@ -117,49 +110,49 @@ class HomePageState extends State<HomePage> {
 //          title: Text(_pages[_index]),
 //          elevation: 0.0,
 //        ),
-            bottomNavigationBar: CurvedNavigationBar(
-              backgroundColor: ColorGlobal.whiteColor,
-              color: Colors.black,
-              buttonBackgroundColor: ColorGlobal.color2,
-              height: 50,
-              items: <Widget>[
-                Icon(
-                  Icons.account_balance,
-                  size: 30,
-                  color: ColorGlobal.color3,
-                ),
-                //     SvgPicture.asset("assets/icons/ac.svg",color:color_shades.color4,height: 30,),
-                Icon(
-                  Icons.assistant_photo,
-                  size: 30,
-                  color: ColorGlobal.color3,
-                ),
-                Icon(
-                  Icons.home,
-                  size: 30,
-                  color: ColorGlobal.color3,
-                ),
-                Icon(
-                  Icons.mail,
-                  size: 30,
-                  color: ColorGlobal.color3,
-                ),
-                Icon(
-                  Icons.person,
-                  size: 30,
-                  color: ColorGlobal.color3,
-                ),
-              ],
-              animationCurve: Curves.bounceInOut,
-              index: _index,
-              animationDuration: Duration(milliseconds: 200),
-              onTap: (int tappedIndex) {
-                setState(() {
-                  _showPage = _getHomeWidgets(tappedIndex, context);
-                });
-              },
-            ),
-            body: _showPage,
+          bottomNavigationBar: CurvedNavigationBar(
+            backgroundColor: ColorGlobal.whiteColor,
+            color: Colors.black,
+            buttonBackgroundColor: ColorGlobal.color2,
+            height: 50,
+            items: <Widget>[
+              Icon(
+                Icons.account_balance,
+                size: 30,
+                color: ColorGlobal.color3,
+              ),
+              //     SvgPicture.asset("assets/icons/ac.svg",color:color_shades.color4,height: 30,),
+              Icon(
+                Icons.assistant_photo,
+                size: 30,
+                color: ColorGlobal.color3,
+              ),
+              Icon(
+                Icons.home,
+                size: 30,
+                color: ColorGlobal.color3,
+              ),
+              Icon(
+                Icons.event,
+                size: 30,
+                color: ColorGlobal.color3,
+              ),
+              Icon(
+                Icons.person,
+                size: 30,
+                color: ColorGlobal.color3,
+              ),
+            ],
+            animationCurve: Curves.bounceInOut,
+            index: _index,
+            animationDuration: Duration(milliseconds: 200),
+            onTap: (int tappedIndex) {
+              setState(() {
+                _showPage = _getHomeWidgets(tappedIndex, context);
+              });
+            },
+          ),
+          body: _showPage,
 //            Stack(
 //              children: [
 //                ClipPath(
@@ -178,10 +171,8 @@ class HomePageState extends State<HomePage> {
 //                )
 //              ],
 //            ),
-          )
-        ],
+        ),
       ),
     );
   }
 }
-

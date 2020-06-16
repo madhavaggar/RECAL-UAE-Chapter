@@ -3,7 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
+<<<<<<< HEAD
+	<string>en</string>
+=======
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+>>>>>>> 3341e621d1b7d4af7abf53760136a17528568db1
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -11,6 +15,17 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
+<<<<<<< HEAD
+	<string>FlutterSplashDemo</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+=======
 	<string>recaluae</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
@@ -20,6 +35,7 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+>>>>>>> 3341e621d1b7d4af7abf53760136a17528568db1
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -41,5 +57,13 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+<<<<<<< HEAD
+
+	<key>NSAppTransportSecurity</key>
+      <true/>
+       <key>NSAllowsArbitraryLoads</key>
+         <true/>
+=======
+>>>>>>> 3341e621d1b7d4af7abf53760136a17528568db1
 </dict>
 </plist>

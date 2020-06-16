@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
+<<<<<<< HEAD
+   LastUpgradeVersion = "0910"
+=======
    LastUpgradeVersion = "1020"
+>>>>>>> 3341e621d1b7d4af7abf53760136a17528568db1
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -26,6 +30,10 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+<<<<<<< HEAD
+      language = ""
+=======
+>>>>>>> 3341e621d1b7d4af7abf53760136a17528568db1
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -45,6 +53,10 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+<<<<<<< HEAD
+      language = ""
+=======
+>>>>>>> 3341e621d1b7d4af7abf53760136a17528568db1
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -65,7 +77,11 @@
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
+<<<<<<< HEAD
+      buildConfiguration = "Release"
+=======
       buildConfiguration = "Profile"
+>>>>>>> 3341e621d1b7d4af7abf53760136a17528568db1
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"

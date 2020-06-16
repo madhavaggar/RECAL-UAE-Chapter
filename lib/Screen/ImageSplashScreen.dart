@@ -1,7 +1,6 @@
 import 'dart:async';
-
+import '../Home/HomeActivity.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../Constant/Constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +16,7 @@ class SplashScreenState extends State<ImageSplashScreen> {
   String userID;
 
   startTime() async {
-    var _duration = new Duration(seconds: 5);
+    var _duration = new Duration(seconds: 1);
     return new Timer(_duration, navigationPage);
   }
   Future <Null> _getUserDetails() async {
@@ -35,8 +34,10 @@ class SplashScreenState extends State<ImageSplashScreen> {
     print("nav page: $userID");
     if(userID==null)
     Navigator.pushReplacementNamed(context, LOGIN_SCREEN);
-    else
-      Navigator.pushReplacementNamed(context, HOME_SCREEN);
+    else {
+//      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeActivity()));
+      Navigator.pushReplacementNamed(context, HOME_PAGE);
+    }
   }
 
   @override
