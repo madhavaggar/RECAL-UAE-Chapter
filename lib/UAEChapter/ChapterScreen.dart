@@ -108,13 +108,13 @@ class _ChapterScreenState extends State<ChapterScreen> {
                         },
                       ),
                       ListTile(
-                        leading: Icon(Icons.credit_card,size: 30),
+                        leading: Icon(Icons.credit_card,size: 30,),
                         title: Text('Pay'),
                         onTap: (){
                           Navigator.push(
                             context,
                             PageTransition(
-                                type: PageTransitionType.leftToRight,
+                                type: PageTransitionType.rightToLeft,
                                 duration: Duration(milliseconds: 300),
                                 child: PayPage()),);
                         },
