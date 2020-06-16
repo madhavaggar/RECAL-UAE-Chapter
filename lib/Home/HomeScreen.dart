@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:recaluae/Constant/utils.dart';
 import '../Constant/HomeCards.dart';
 import '../Constant/ColorGlobal.dart';
 
@@ -18,6 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screeSize = MediaQuery.of(context).size;
+    UIUtills()
+        .updateScreenDimesion(width: screeSize.width, height: screeSize.height);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -42,6 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
               clipper: Header(),
             ),
             Container(
+              margin: EdgeInsets.only(top:UIUtills().getProportionalHeight(height: 130.0),),
               child: GridView.count(
                 crossAxisCount: 2,
                 childAspectRatio: 1.0,

@@ -29,7 +29,7 @@ dependencies:
   duration: ^2.0.11
   rect_getter: ^0.1.0
   badges: ^1.1.1
-  image_picker:
+  image_picker:   
   shared_preferences: ^0.5.7+3
   curved_navigation_bar: ^0.3.2
   flutter_svg: ^0.17.4
@@ -38,6 +38,9 @@ dependencies:
   flutter_swiper: ^1.1.6
   flutter_fadein: ^1.1.1
   url_launcher: ^5.4.10
+  flutter_spinkit: ^4.1.2
+  transparent_image: ^1.0.0
+
 
 dev_dependencies:
   flutter_test:
