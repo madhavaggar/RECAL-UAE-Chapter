@@ -765,18 +765,13 @@ Widget getBody(){
   // ),
   // ],
   // ),
-                      Container(child: Text("Event Links"),margin: EdgeInsets.only(left: 4),),
+                      (isSocialMediaEmpty)==false?Container(child: Text("Event Links"),margin: EdgeInsets.only(left: 4),):SizedBox(height: 4,),
                       FutureBuilder(
                         future: getSocialMediaLinks(),
                         builder: (BuildContext context,AsyncSnapshot snapshot){
                           if(snapshot.data==null){
                             if(isSocialMediaEmpty){
-                              return Center(
-                                  child:Text("No social media links for this event",style:TextStyle(
-                                      color: Colors.blueGrey,
-                                      fontSize: 14
-                                  ))
-                              );
+                              return SizedBox();
                             }else{
                               return Container(width: 0,height: 0,);
                             }

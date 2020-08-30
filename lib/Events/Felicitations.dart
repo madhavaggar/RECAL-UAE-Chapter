@@ -66,6 +66,17 @@ body: Padding(
               itemCount: snapshot.data.length, itemBuilder: (context, index) {
             return Container(
               decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                        spreadRadius: 5,
+                        blurRadius: 50.0,
+                        offset: Offset(
+                            0, // Move to right 10  horizontally
+                            0.75// Move to bottom 5 Vertically
+                        ),
+                        color: Colors.black12
+                    )
+                  ],
 color:ColorGlobal.color2,
 borderRadius: BorderRadius.circular(20.0)),
 margin: EdgeInsets.only(top: 6,bottom: 6),
