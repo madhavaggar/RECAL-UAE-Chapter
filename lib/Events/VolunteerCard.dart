@@ -5,6 +5,7 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:iosrecal/Events/Felicitations.dart';
 import 'package:iosrecal/models/EventInfo.dart';
 import 'package:iosrecal/models/ResponseBody.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -20,7 +21,8 @@ class VolunteerCard extends StatefulWidget {
   bool isCompleted;
   bool isAttended=false;
   bool isCheckAttended=false;
-  VolunteerCard( this.currEvent,this.isCompleted);
+  int status;
+  VolunteerCard( this.currEvent,this.isCompleted,this.status);
 
   @override
   _VolunteerCardState createState() => _VolunteerCardState();
@@ -53,13 +55,20 @@ class _VolunteerCardState extends State<VolunteerCard> {
                   children: <Widget>[
                     Container(
                       child:
-                      Text( widget.currEvent.event_type!=null?(widget.currEvent.event_type):" ",
+                      widget.status!=2?Text( widget.currEvent.event_type!=null?(widget.currEvent.event_type):" ",
                         maxLines: 1,
                         style: TextStyle(
                             color: ColorGlobal.color2,
                             fontWeight: FontWeight.bold,
                             fontSize: 16),
-                      ),
+                      ): Text(
+          getDate(),
+        style: TextStyle(
+            fontSize: 16,
+            color: ColorGlobal.color2,
+            fontWeight: FontWeight.bold),
+      ),
+
                       margin: EdgeInsets.only(
                           left: 14, top: 6, right: 4, bottom: 2),
                     ),
@@ -93,7 +102,8 @@ class _VolunteerCardState extends State<VolunteerCard> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
-                                  getDate(),
+                                 widget.status==2?"Event Name":getDate(),
+                                  overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
                                       color: Colors.black54,
                                       fontSize: 16,
@@ -114,7 +124,8 @@ class _VolunteerCardState extends State<VolunteerCard> {
                         ],
                       ),
                       Container(child: IconButton(icon:Icon(Icons.chevron_right),onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder:(context)=>Event(widget.isCompleted,widget.currEvent)));
+                        Navigator.push(context, MaterialPageRoute(builder:(context)=>
+                            widget.status==2?Felicitations(widget.currEvent.event_id):Event(widget.isCompleted,widget.currEvent)));
                       },),margin: EdgeInsets.only(right: 8),),
                     ],
                   ),

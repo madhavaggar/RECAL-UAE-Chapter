@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:iosrecal/Events/CompletedEvents.dart';
+import 'package:iosrecal/Events/EventsScreen.dart';
 import '../Constant/Constant.dart';
 import '../Constant/ColorGlobal.dart';
 
@@ -14,8 +16,9 @@ class _SocialPageState extends State<SocialPage> {
   Future<bool> _onBackPressed() {
     Navigator.pop(context);
   }
-
   void _navigatePage(int i){
+    if(i==2)
+      Navigator.push(context,MaterialPageRoute(builder: (context)=>EventsScreen(2)));
     if(i==3)
       Navigator.pushNamed(context, MEMBER_DATABASE);
   }

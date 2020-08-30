@@ -249,7 +249,7 @@ class _HomeActivityState extends State<HomeActivity> {
                               Container(
                                   padding: EdgeInsets.all(10.0),
                                   width: width*0.9,
-                                  child: Text("No new messagessfjf adjfjggj jdejf ajdfh ajf dfjfg sdjfdjfhfgjfkgjfgfjgfjieiddkndsnhuaheuajndawuhna;woeiiej!!",overflow: TextOverflow.ellipsis,style: TextStyle(fontSize: 15),)),
+                                  child: Text("No new messages!!",overflow: TextOverflow.ellipsis,style: TextStyle(fontSize: 15),)),
                             ],
                           ),
                           elevation: 5,
@@ -442,7 +442,7 @@ class _HomeActivityState extends State<HomeActivity> {
                             ),
                             onTap: () {
                               Navigator.push(context,MaterialPageRoute(builder: (context) =>
-                                  EventsScreen()));
+                                  EventsScreen(1)));
                             },
                           ),
                           GestureDetector(
