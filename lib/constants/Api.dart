@@ -1,8 +1,8 @@
 class Api {
-//  static final String host = "https://delta.nitt.edu/recal-uae/api/";
-//  static final String imageUrl = "https://delta.nitt.edu/recal-uae";
-  static final String host = "https://www.recaluaechapter.com/api/api/";
-  static final String imageUrl = "https://www.recaluaechapter.com/api";
+  static final String host = "https://delta.nitt.edu/recal-uae/api/";
+  static final String imageUrl = "https://delta.nitt.edu/recal-uae";
+//  static final String host = "https://www.recaluaechapter.com/api/api/";
+//  static final String imageUrl = "https://www.recaluaechapter.com/api";
   static final String getBaseFileUrl = imageUrl;
   static final String checkLogin = host + "auth/check_login";
   static final String login = host + "auth/app_login/";
