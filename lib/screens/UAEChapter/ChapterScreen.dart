@@ -96,19 +96,20 @@ class _ChapterScreenState extends State<ChapterScreen> {
                             [
                               Material
                                 (
-                                  color: Color(0xfff4c83f),
+//                                  color: Color(0xfff4c83f),
                                   borderRadius: BorderRadius.circular(
-                                      getWidth(24, 2)),
+                              getWidth(24, 2), ),
+
                                   child: Center
                                     (
                                       child: Padding
                                         (
                                         padding: EdgeInsets.all(
                                             getWidth(16, 2)),
-                                        child: Icon(
+                                          child: Icon(
                                           Icons.list,
-                                          size: getWidth(30, 2),
-                                          color: Colors.white,
+                                            size: getWidth(25, 1),
+                                color: Colors.blue,
                                         ),
                                       )
                                   )
@@ -117,12 +118,12 @@ class _ChapterScreenState extends State<ChapterScreen> {
                                 width: getWidth(8, 2),
                               ),
                               Text('Vision and Mission',
-                                  style: TextStyle(
-                                      color: ColorGlobal
-                                          .textColor,
-                                      fontWeight:
-                                      FontWeight.w500,
-                                      fontSize: getWidth(20, 2))),
+                                style: TextStyle(
+                                    fontFamily: 'Pacifico',
+                                    fontSize: getWidth(15, 1),
+                                    fontWeight: FontWeight.bold,
+                                    color: ColorGlobal.textColor
+                                ),),
                             ]
                         ),
                       ),
@@ -162,7 +163,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
                                           getWidth(16, 2)),
                                       child: Icon(
                                         Icons.person,
-                                        size: getWidth(30, 2),
+                                        size: getWidth(25, 1),
                                         color: Colors.white,
                                       ),
                                     )
@@ -172,12 +173,12 @@ class _ChapterScreenState extends State<ChapterScreen> {
                               width: getWidth(8, 2),
                             ),
                             Text('Core Committee',
-                                style: TextStyle(
-                                    color: ColorGlobal
-                                        .textColor,
-                                    fontWeight:
-                                    FontWeight.w500,
-                                    fontSize: getWidth(20, 2))),
+                              style: TextStyle(
+                                  fontFamily: 'Pacifico',
+                                  fontSize: getWidth(15, 1),
+                                  fontWeight: FontWeight.bold,
+                                  color: ColorGlobal.textColor
+                              ),),
                           ],
                         ),
                       ),
@@ -214,7 +215,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
                                       getWidth(16, 2)),
                                   child: Icon(
                                     Icons.brightness_low,
-                                    size: getWidth(30, 2),
+                                    size: getWidth(25, 1),
                                     color: Colors.white,
                                   ),
                                 ),
@@ -224,11 +225,12 @@ class _ChapterScreenState extends State<ChapterScreen> {
                               width: getWidth(8, 2),
                             ),
                             Text('Achievements',
-                                style: TextStyle(
-                                    color: ColorGlobal
-                                        .textColor,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: getWidth(20, 2))),
+                              style: TextStyle(
+                                  fontFamily: 'Pacifico',
+                                  fontSize: getWidth(15, 1),
+                                  fontWeight: FontWeight.bold,
+                                  color: ColorGlobal.textColor
+                              ),),
                           ],
                         ),
                       ),
@@ -264,7 +266,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
                                       getWidth(16, 2)),
                                   child: Icon(
                                     Icons.credit_card,
-                                    size: getWidth(30, 2),
+                                    size: getWidth(25, 1),
                                     color: Colors.white,
                                   ),
                                 ),
@@ -285,11 +287,12 @@ class _ChapterScreenState extends State<ChapterScreen> {
 //                                  color: Color(0xccff3266),
 //                                  fontSize: 13.0)),
                                 Text('Pay',
-                                    style: TextStyle(
-                                        color: ColorGlobal
-                                            .textColor,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: getWidth(20, 2)))
+                                  style: TextStyle(
+                                      fontFamily: 'Pacifico',
+                                      fontSize: getWidth(15, 1),
+                                      fontWeight: FontWeight.bold,
+                                      color: ColorGlobal.textColor
+                                  ),)
                               ],
                             ),
                           ],
@@ -327,7 +330,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
                                       getWidth(16, 2)),
                                   child: Icon(
                                     Icons.phone,
-                                    size: getWidth(30, 2),
+                                    size: getWidth(25, 1),
                                     color: Colors.white,
                                   ),
                                 ),
@@ -348,11 +351,12 @@ class _ChapterScreenState extends State<ChapterScreen> {
 //                                  color: Color(0xcc3399fe),
 //                                  fontSize: 13.0)),
                                 Text('Contact',
-                                    style: TextStyle(
-                                        color: ColorGlobal
-                                            .textColor,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: getWidth(20, 2)))
+                                  style: TextStyle(
+                                      fontFamily: 'Pacifico',
+                                      fontSize: getWidth(15, 1),
+                                      fontWeight: FontWeight.bold,
+                                      color: ColorGlobal.textColor
+                                  ),)
                               ],
                             ),
                           ],

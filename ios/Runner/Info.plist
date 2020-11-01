@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>RECAL UAE</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -15,28 +17,36 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>$(FLUTTER_BUILD_NAME)</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Access Apple Music description</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Access Calendar description</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Access camera and photos</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Access camera and photos</string>
+	<string>Camera Usage Description</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Access contacts description </string>
+	<key>NSMotionUsageDescription</key>
+	<string>Access Motion description</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Access camera and photos</string>
+	<string>Photo Usage Description</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Access Speech Recognition description</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>UIStatusBarHidden</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -47,8 +57,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>UIStatusBarHidden</key>
-	<true/>
-
 </dict>
 </plist>

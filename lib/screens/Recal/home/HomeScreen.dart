@@ -806,7 +806,8 @@ class _HomeActivityState extends State<HomeActivity> {
                                       fontFamily: 'Pacifico',
                                       fontSize: getWidth(15, 1),
                                       fontWeight: FontWeight.bold,
-                                      color: ColorGlobal.textColor),
+                                      color: ColorGlobal.textColor
+                                  ),
                                 ),
                                 Text(
                                   "Social Network",
