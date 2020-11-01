@@ -304,7 +304,7 @@ class _ContactUsState extends State<ContactUs> with TickerProviderStateMixin{
                     width: width,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Color(0xff3AAFFA), Color(0xff374ABE)],
+                        colors: [ColorGlobal.blueColor, Color(0xff374ABE)],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),

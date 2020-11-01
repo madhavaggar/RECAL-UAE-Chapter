@@ -229,7 +229,6 @@ class _AchievementsScreenState extends State<AchievementsScreen> {
                             textAlign: TextAlign.start,
                             style: TextStyle(
                               fontSize: getWidth(17, 1),
-                              letterSpacing: 1,
                               color: ColorGlobal.textColor.withOpacity(0.6),
                               fontWeight: FontWeight.w600,
                             ),

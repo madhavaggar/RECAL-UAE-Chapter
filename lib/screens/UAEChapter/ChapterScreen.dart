@@ -55,10 +55,10 @@ class _ChapterScreenState extends State<ChapterScreen> {
           children: <Widget>[
                 Center(
                   child: Container(
-                    margin: EdgeInsets.symmetric(vertical: getHeight(15, 2)),
+                    margin: EdgeInsets.symmetric(vertical: getHeight(15, 1)),
                     width: width*0.7,
                     height: width*0.3,
-                    padding: EdgeInsets.symmetric(horizontal: getWidth(20,2)),
+                    padding: EdgeInsets.symmetric(horizontal: getWidth(20, 1)),
                     decoration: new BoxDecoration(
                       color: ColorGlobal.colorPrimaryDark,
                       image: new DecorationImage(
@@ -70,68 +70,78 @@ class _ChapterScreenState extends State<ChapterScreen> {
                   ),
       ),
             Expanded(
-              child: Padding(
-                padding: EdgeInsets.all(getHeight(10,2)),
-                child: ListView(
-                  padding: EdgeInsets.symmetric(horizontal: getWidth(10, 2)),
-                  children: <Widget>[
-                    GestureDetector(
+              child: ListView(
+                padding: EdgeInsets.symmetric(horizontal: getWidth(10, 1)),
+                children: <Widget>[
+                  Card(
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                        borderRadius:
+                        new BorderRadius.circular(0.05*width)),
+                    child: GestureDetector(
                       onTap: (){
                         Navigator.push(
                           context,
                           PageTransition(
-                              type: PageTransitionType.bottomToTop,
+                              type: PageTransitionType.leftToRight,
                               duration: Duration(milliseconds: 300),
                               child: VisionMission()),);
                       },
                       child: Container(
                         width: width,
                         color: Colors.transparent,
+                        //color: Colors.red,
                         child: Row
                           (
                           //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment
-                                .center,
-                            children: <Widget>
-                            [
-                              Material
-                                (
-//                                  color: Color(0xfff4c83f),
-                                  borderRadius: BorderRadius.circular(
-                              getWidth(24, 2), ),
-
-                                  child: Center
-                                    (
-                                      child: Padding
-                                        (
-                                        padding: EdgeInsets.all(
-                                            getWidth(16, 2)),
-                                          child: Icon(
-                                          Icons.list,
-                                            size: getWidth(25, 1),
-                                color: Colors.blue,
-                                        ),
-                                      )
-                                  )
-                              ),
-                              SizedBox(
-                                width: getWidth(8, 2),
-                              ),
-                              Text('Vision and Mission',
-                                style: TextStyle(
-                                    fontFamily: 'Pacifico',
-                                    fontSize: getWidth(15, 1),
-                                    fontWeight: FontWeight.bold,
-                                    color: ColorGlobal.textColor
-                                ),),
-                            ]
+                          crossAxisAlignment: CrossAxisAlignment.center,
+//                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>
+                          [
+                            Material
+                              (
+//                                color: Color(0xcc982ef0),
+                                color: Colors.transparent,
+                                borderRadius: BorderRadius.circular(
+                                    getWidth(24, 1)),
+                                child: Center
+                                  (
+                                    child: Padding
+                                      (
+                                      padding: EdgeInsets.all(
+                                          getWidth(16, 1)),
+                                      child: Icon(
+                                        Icons.remove_red_eye,
+                                        size: getWidth(25, 1),
+                                        color: ColorGlobal.blueColor,
+                                      ),
+                                    )
+                                )
+                            ),
+//                            SizedBox(
+//                              width: getWidth(8, 1),
+//                            ),
+                            Text('Vision and Mission',
+                              style: TextStyle(
+                                  fontFamily: 'Pacifico',
+                                  fontSize: getWidth(16, 1),
+                                  fontWeight: FontWeight.bold,
+                                  color: ColorGlobal.textColor
+                              ),),
+                          ],
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: getHeight(24, 2),
-                    ),
-                    GestureDetector(
+                  ),
+//                  SizedBox(
+//                    height: getHeight(8,1),
+//                  ),
+                  Card(
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                        borderRadius:
+                        new BorderRadius.circular(0.05*width)),
+                    child: GestureDetector(
                       onTap: (){
                         Navigator.push(
                           context,
@@ -146,36 +156,37 @@ class _ChapterScreenState extends State<ChapterScreen> {
                         //color: Colors.red,
                         child: Row
                           (
-                          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                          mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>
                           [
                             Material
                               (
-                                color: Color(0xcc982ef0),
+//                                color: Color(0xcc982ef0),
+                                color: Colors.transparent,
                                 borderRadius: BorderRadius.circular(
-                                    getHeight(24, 2)),
+                                    getWidth(24, 1)),
                                 child: Center
                                   (
                                     child: Padding
                                       (
                                       padding: EdgeInsets.all(
-                                          getWidth(16, 2)),
+                                          getWidth(16, 1)),
                                       child: Icon(
-                                        Icons.person,
+                                        Icons.group,
                                         size: getWidth(25, 1),
-                                        color: Colors.white,
+                                        color: ColorGlobal.blueColor,
                                       ),
                                     )
                                 )
                             ),
-                            SizedBox(
-                              width: getWidth(8, 2),
-                            ),
+//                            SizedBox(
+//                              width: getWidth(8, 1),
+//                            ),
                             Text('Core Committee',
                               style: TextStyle(
                                   fontFamily: 'Pacifico',
-                                  fontSize: getWidth(15, 1),
+                                  fontSize: getWidth(16, 1),
                                   fontWeight: FontWeight.bold,
                                   color: ColorGlobal.textColor
                               ),),
@@ -183,10 +194,16 @@ class _ChapterScreenState extends State<ChapterScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: getHeight(24, 2),
-                    ),
-                    GestureDetector(
+                  ),
+//                  SizedBox(
+//                    height: getHeight(8,1),
+//                  ),
+                  Card(
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                        borderRadius:
+                        new BorderRadius.circular(0.05*width)),
+                    child: GestureDetector(
                       onTap: (){
                         Navigator.push(
                           context,
@@ -200,34 +217,36 @@ class _ChapterScreenState extends State<ChapterScreen> {
                         color: Colors.transparent,
                         //color: Colors.red,
                         child: Row(
+//                          mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment
                               .center,
                           children: [
                             Material(
-                              color: Color(0xcc26cb3c),
+//                              color: Color(0xcc26cb3c),
+                              color: Colors.transparent,
                               borderRadius: BorderRadius.circular(
-                                  getHeight(24, 2)),
+                                  getWidth(24, 1)),
                               child: Center
                                 (
                                 child: Padding
                                   (
                                   padding: EdgeInsets.all(
-                                      getWidth(16, 2)),
+                                      getWidth(16, 1)),
                                   child: Icon(
-                                    Icons.brightness_low,
+                                    Icons.school,
                                     size: getWidth(25, 1),
-                                    color: Colors.white,
+                                    color: ColorGlobal.blueColor,
                                   ),
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              width: getWidth(8, 2),
-                            ),
+//                            SizedBox(
+//                              width: getWidth(8, 1),
+//                            ),
                             Text('Achievements',
                               style: TextStyle(
                                   fontFamily: 'Pacifico',
-                                  fontSize: getWidth(15, 1),
+                                  fontSize: getWidth(16, 1),
                                   fontWeight: FontWeight.bold,
                                   color: ColorGlobal.textColor
                               ),),
@@ -235,10 +254,16 @@ class _ChapterScreenState extends State<ChapterScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: getHeight(24, 2),
-                    ),
-                    GestureDetector(
+                  ),
+//                  SizedBox(
+//                    height: getHeight(8,1),
+//                  ),
+                  Card(
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                        borderRadius:
+                        new BorderRadius.circular(0.05*width)),
+                    child: GestureDetector(
                       onTap: (){
                         Navigator.push(
                           context,
@@ -251,30 +276,32 @@ class _ChapterScreenState extends State<ChapterScreen> {
                         width: width,
                         color: Colors.transparent,
                         child: Row(
+//                          mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment
                               .center,
                           children: [
                             Material(
-                              color: Color(0xccff3266),
+//                              color: Color(0xccff3266),
+                              color: Colors.transparent,
                               borderRadius: BorderRadius.circular(
-                                  getHeight(24, 2)),
+                                  getWidth(24, 1)),
                               child: Center
                                 (
                                 child: Padding
                                   (
                                   padding: EdgeInsets.all(
-                                      getWidth(16, 2)),
+                                      getWidth(16, 1)),
                                   child: Icon(
-                                    Icons.credit_card,
+                                    Icons.payment,
                                     size: getWidth(25, 1),
-                                    color: Colors.white,
+                                    color: ColorGlobal.blueColor,
                                   ),
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              width: getWidth(8, 2),
-                            ),
+//                            SizedBox(
+//                              width: getWidth(8, 1),
+//                            ),
                             Column
                               (
                               mainAxisAlignment: MainAxisAlignment
@@ -289,7 +316,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
                                 Text('Pay',
                                   style: TextStyle(
                                       fontFamily: 'Pacifico',
-                                      fontSize: getWidth(15, 1),
+                                      fontSize: getWidth(16, 1),
                                       fontWeight: FontWeight.bold,
                                       color: ColorGlobal.textColor
                                   ),)
@@ -299,10 +326,16 @@ class _ChapterScreenState extends State<ChapterScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: getHeight(24, 2),
-                    ),
-                    GestureDetector(
+                  ),
+//                  SizedBox(
+//                    height: getHeight(8 ,1),
+//                  ),
+                  Card(
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                        borderRadius:
+                        new BorderRadius.circular(0.05*width)),
+                    child: GestureDetector(
                       onTap: (){
                         Navigator.push(
                           context,
@@ -315,30 +348,32 @@ class _ChapterScreenState extends State<ChapterScreen> {
                         width: width,
                         color: Colors.transparent,
                         child: Row(
+//                          mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment
                               .center,
                           children: [
                             Material(
-                              color: Color(0xcc3399fe),
+//                              color: Color(0xcc3399fe),
+                              color: Colors.transparent,
                               borderRadius: BorderRadius.circular(
-                                  getHeight(24, 2)),
+                                  getWidth(24, 1)),
                               child: Center
                                 (
                                 child: Padding
                                   (
                                   padding: EdgeInsets.all(
-                                      getWidth(16, 2)),
+                                      getWidth(16, 1)),
                                   child: Icon(
-                                    Icons.phone,
+                                    Icons.contacts,
                                     size: getWidth(25, 1),
-                                    color: Colors.white,
+                                    color: ColorGlobal.blueColor,
                                   ),
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              width: getWidth(8, 2),
-                            ),
+//                            SizedBox(
+//                              width: getWidth(8, 1),
+//                            ),
                             Column
                               (
                               mainAxisAlignment: MainAxisAlignment
@@ -353,7 +388,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
                                 Text('Contact',
                                   style: TextStyle(
                                       fontFamily: 'Pacifico',
-                                      fontSize: getWidth(15, 1),
+                                      fontSize: getWidth(16, 1),
                                       fontWeight: FontWeight.bold,
                                       color: ColorGlobal.textColor
                                   ),)
@@ -363,9 +398,9 @@ class _ChapterScreenState extends State<ChapterScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 10,),
-                  ],
-                ),
+                  ),
+                  SizedBox(height: 10,),
+                ],
               ),
             ),
           ],

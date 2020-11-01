@@ -181,7 +181,7 @@ class _PayPageState extends State<PayPage> {
                 style: TextStyle(
                   color: const Color(0xFF544F50),
                   fontSize: getWidth(18, 2),
-                  letterSpacing: 1.2,
+                  letterSpacing: 1,
                   wordSpacing: 1.2,
                 ),
               ),

@@ -139,25 +139,25 @@ class IntroPageState extends State<IntroPage> {
 //                    ),
                      firstPage ? Container() : FlatButton(
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(getHeight(10, 1))),
+                          borderRadius: BorderRadius.circular(getWidth(10, 1))),
                       color: ColorGlobal.textColor,
                       child: new Text("BACK",
                           style: new TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              fontSize: getHeight(16, 1))),
+                              fontSize: getWidth(16, 1))),
                       onPressed: () => controller.jumpToPage(currentPage-1),
                     ),
 
                     new FlatButton(
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(getHeight(10, 1))),
+                          borderRadius: BorderRadius.circular(getWidth(10, 1))),
                       color: ColorGlobal.textColor,
                       child: new Text(lastPage ? "LOGIN" : "NEXT",
                           style: new TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              fontSize: getHeight(16, 1))),
+                              fontSize: getWidth(16, 1))),
                       onPressed: () => lastPage
                           ? widget.skipPage(context)
                           : controller.nextPage(
